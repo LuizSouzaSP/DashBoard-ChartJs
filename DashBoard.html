@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        .box{
+            display: flex;
+            justify-content: center;
+        }
+        #myChart2 {
+            position: relative; 
+            width: 700px; 
+            height: 400px;
+  
+        }
+        #myChart {
+            position: relative;
+            width: 700px; 
+            height: 400px;
+            margin-left: 50px;
+        }
+        .titulo {
+            display: flex;
+            font-family: sans-serif;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="titulo">
+        <h1>DashBoards</h1>
+    </div>
+ 
+    <div class="box">
+        <div>
+            <canvas id="myChart2"></canvas>
+        </div>
+        <div>
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    const ctx = document.getElementById('myChart');
+    const ctx2 = document.getElementById('myChart2');
+
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho',
+        ],
+      datasets: [{
+        label: 'Temperatura Média',
+        data: [22, 24, 27, 23, 20, 18],
+        borderWidth: 1,
+        backgroundColor: 'orange'
+      },{
+        label: 'Umidade Média',
+        data: [90, 89, 93, 87, 88, 82],
+        borderWidth: 1,
+        backgroundColor: 'rgb(0,150,255)'
+      }
+    ]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+  new Chart(ctx2, {
+    type: 'line',
+    data: {
+      labels: ['12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+        ],
+        datasets: [{
+        label: 'Temperatura',
+        data: [30, 29, 28, 25, 22, 23],
+        borderWidth: 1,
+        backgroundColor: 'orange'
+      },
+        {label: 'Umidade',
+        data: [80, 82, 80, 85, 80, 83],
+        borderWidth: 1,
+        backgroundColor: 'rgb(0,150,255)'
+    }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
